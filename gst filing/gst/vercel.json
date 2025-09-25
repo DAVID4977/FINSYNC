@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "gst-portal",
+  "builds": [
+    {
+      "src": "public-portal/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/government-portal/(.*)",
+      "dest": "/public-portal/index.html"
+    },
+    {
+      "src": "/government-portal",
+      "dest": "/public-portal/index.html"
+    }
+  ]
+}
