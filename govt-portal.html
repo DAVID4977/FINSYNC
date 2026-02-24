@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods and Services Tax Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header-bg {
+            background-color: #10264d;
+        }
+        .nav-bg {
+            background-color: #3a557d;
+        }
+        .btn-primary {
+            background-color: #3a557d;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #10264d;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+        }
+        .card-header {
+            background-color: #10264d;
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid #d1d5db;
+        }
+        .breadcrumb-bg {
+            background-color: #f3f4f6;
+        }
+        .status-filed {
+            color: #16a34a;
+            font-weight: bold;
+        }
+        .status-not-filed {
+            color: #dc2626;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <div class="container mx-auto max-w-7xl">
+        <!-- Header Section -->
+        <header class="header-bg text-white p-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <!-- Indian Flag Emblem -->
+                    <svg class="h-14 w-14" viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="90" height="20" fill="#FF9933"/>
+                      <rect y="20" width="90" height="20" fill="#FFFFFF"/>
+                      <rect y="40" width="90" height="20" fill="#138808"/>
+                      <circle cx="45" cy="30" r="8" fill="none" stroke="#000080" stroke-width="1.5"/>
+                      <g stroke="#000080" stroke-width="1" stroke-linecap="round">
+                        <path d="M45 30 L 45 22" />
+                        <path d="M45 30 L 45 38" />
+                        <path d="M45 30 L 37 30" />
+                        <path d="M45 30 L 53 30" />
+                        <path d="M45 30 L 49.53 24.47" />
+                        <path d="M45 30 L 40.47 35.53" />
+                        <path d="M45 30 L 51 27" />
+                        <path d="M45 30 L 39 33" />
+                        <path d="M45 30 L 51 33" />
+                        <path d="M45 30 L 39 27" />
+                        <path d="M45 30 L 49.53 35.53" />
+                        <path d="M45 30 L 40.47 24.47" />
+                      </g>
+                    </svg>
+                    <div>
+                        <h1 class="text-2xl font-bold">Goods and Services Tax</h1>
+                        <p class="text-sm">Government of India, States and Union Territories</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                     <div class="text-xs">
+                        <a href="#" class="hover:underline">Skip to Main Content</a> |
+                        <button class="text-xs">A-</button>
+                        <button class="text-xs">A</button>
+                        <button class="text-xs">A+</button>
+                    </div>
+                    <button class="bg-gray-500 text-white px-4 py-1 rounded-md text-sm font-semibold">REGISTER</button>
+                    <button id="headerLoginBtn" class="bg-white text-blue-800 px-4 py-1 rounded-md text-sm font-semibold">LOGIN</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-bg text-white">
+            <ul class="flex justify-center space-x-8 py-2 text-sm">
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">Home</a></li>
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">Services</a></li>
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">GST Law</a></li>
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">Downloads</a></li>
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">Search Taxpayer</a></li>
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">Help and Taxpayer Facilities</a></li>
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">e-Invoice</a></li>
+                <li><a href="#" class="hover:bg-blue-800 px-3 py-2 rounded-md">News and Updates</a></li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <main class="p-4 md:p-6">
+            <!-- Login Page -->
+            <div id="loginPage">
+                <div class="text-sm text-gray-600 mb-4">
+                    <a href="#" class="text-blue-600 hover:underline">Home</a> &gt; <span>Login</span>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-4">Login</h2>
+                    <p class="text-sm text-red-600 mb-6">* indicates mandatory fields</p>
+                    <form>
+                        <div class="mb-4">
+                            <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username <span class="text-red-600">*</span></label>
+                            <input type="text" id="username" placeholder="Enter Username" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password <span class="text-red-600">*</span></label>
+                            <input type="password" id="password" placeholder="Enter Password" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <button type="button" id="loginBtn" class="w-32 btn-primary font-semibold py-2 px-4 rounded-md transition duration-300">LOGIN</button>
+                    </form>
+                    <div class="flex justify-between mt-4 text-sm text-blue-600">
+                        <a href="#" class="hover:underline">Forgot Username</a>
+                        <a href="#" class="hover:underline">Forgot Password</a>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-100 rounded-md text-sm text-gray-700">
+                        <p><span class="font-bold">ⓘ</span> First time login: If you are logging in for the first time, click <a href="#" class="text-blue-600 hover:underline">here</a> to log in.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="dashboardPage" class="hidden">
+                <div class="breadcrumb-bg p-3 mb-4 rounded-md flex justify-between items-center">
+                    <span class="font-semibold text-gray-700">Dashboard &gt; Returns</span>
+                    <span class="text-sm text-gray-600">🇬🇧 English</span>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-4 text-gray-700">File Returns</h2>
+                    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-3 mb-4 text-sm rounded-md">
+                        GSTR-2A can now be downloaded in excel/CSV
+                    </div>
+                    <p class="text-sm text-red-600 mb-6 text-right">* Indicates Mandatory Fields</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                        <div>
+                            <label for="financial-year" class="block text-sm font-medium text-gray-700">Financial Year <span class="text-red-500">*</span></label>
+                            <select id="financial-year" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option>2024-25</option>
+                                <option>2023-24</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quarter" class="block text-sm font-medium text-gray-700">Quarter <span class="text-red-500">*</span></label>
+                            <select id="quarter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option>Quarter 1 (Apr - Jun)</option>
+                                <option selected>Quarter 2 (Jul - Sep)</option>
+                                <option>Quarter 3 (Oct - Dec)</option>
+                                <option>Quarter 4 (Jan - Mar)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="period" class="block text-sm font-medium text-gray-700">Period <span class="text-red-500">*</span></label>
+                            <select id="period" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option>July</option>
+                                <option>August</option>
+                                <option selected>September</option>
+                            </select>
+                        </div>
+                        <button id="searchBtn" class="btn-primary font-semibold py-2 px-4 rounded-md transition duration-300 h-10">SEARCH</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Returns Page -->
+            <div id="returnsPage" class="hidden">
+                <div class="breadcrumb-bg p-3 mb-4 rounded-md">
+                    <span class="font-semibold text-gray-700">Dashboard &gt; Returns &gt; September</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="card shadow-md">
+                        <div class="card-header font-bold">Details of outward supplies of goods or services <br> <span class="font-normal">GSTR1</span></div>
+                        <div class="p-4">
+                            <p class="mb-4"><span class="font-semibold">Status-</span> <span class="status-text status-not-filed">Not Filed</span></p>
+                            <div class="flex space-x-4">
+                                <button class="upload-btn w-full btn-primary py-2 rounded-md">UPLOAD</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card shadow-md">
+                        <div class="card-header font-bold">Details of inward supplies liable to reverse charge <br> <span class="font-normal">GSTR2</span></div>
+                        <div class="p-4">
+                            <p class="mb-4"><span class="font-semibold">Status-</span> <span class="status-text status-filed">Filed</span></p>
+                            <div class="flex space-x-4">
+                                <button class="btn-primary py-2 px-4 rounded-md" disabled>FILED</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card shadow-md">
+                        <div class="card-header font-bold">Monthly return <br> <span class="font-normal">GSTR3B</span></div>
+                        <div class="p-4">
+                            <p class="mb-4"><span class="font-semibold">Status-</span> <span class="status-text status-not-filed">Not Filed</span></p>
+                            <div class="flex space-x-4">
+                                <button class="upload-btn w-full btn-primary py-2 rounded-md">UPLOAD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Page -->
+            <div id="uploadPage" class="hidden">
+                <div class="breadcrumb-bg p-3 mb-4 rounded-md">
+                    <span class="font-semibold text-gray-700">Dashboard &gt; Returns &gt; September &gt; GSTR1 Upload</span>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-4 text-gray-700">Upload GSTR1 Return</h2>
+                    <p class="text-sm text-gray-600 mb-6">Upload your Excel file containing GST return details</p>
+                    
+                    <div class="mb-6">
+                        <label for="file-upload" class="block text-sm font-medium text-gray-700 mb-2">Select Excel File</label>
+                        <input type="file" id="file-upload" accept=".xlsx,.xls" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <p class="text-xs text-gray-500 mt-1">Supported formats: .xlsx, .xls</p>
+                    </div>
+
+                    <div id="upload-progress" class="hidden mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span>Uploading...</span>
+                            <span id="progress-percent">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div id="upload-success" class="hidden mb-6 flex items-center space-x-2 text-green-600 bg-green-50 p-3 rounded-md">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>File uploaded successfully! Your return has been submitted to the GST portal.</span>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <button id="submit-btn" class="btn-primary font-semibold py-2 px-6 rounded-md transition duration-300">SUBMIT RETURN</button>
+                        <button id="back-btn" class="bg-gray-500 text-white font-semibold py-2 px-6 rounded-md transition duration-300 hover:bg-gray-600">BACK</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript for page navigation
+        let currentStep = "login";
+
+        const pages = {
+            login: document.getElementById('loginPage'),
+            dashboard: document.getElementById('dashboardPage'),
+            returns: document.getElementById('returnsPage'),
+            upload: document.getElementById('uploadPage')
+        };
+
+        function showPage(pageKey) {
+            Object.values(pages).forEach(page => page.classList.add('hidden'));
+            pages[pageKey].classList.remove('hidden');
+            currentStep = pageKey;
+        }
+
+        // Login functionality
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+            
+            showPage('dashboard');
+        });
+
+        // Header login button
+        document.getElementById('headerLoginBtn').addEventListener('click', function() {
+            showPage('login');
+        });
+
+        // Search button
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            showPage('returns');
+        });
+
+        // Upload buttons
+        document.querySelectorAll('.upload-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                showPage('upload');
+            });
+        });
+
+        // Back button
+        document.getElementById('back-btn').addEventListener('click', function() {
+            showPage('returns');
+        });
+
+        // File upload and submit
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            const fileInput = document.getElementById('file-upload');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select an Excel file first');
+                return;
+            }
+
+            if (!file.name.endsWith('.xlsx') && !file.name.endsWith('.xls')) {
+                alert('Please select a valid Excel file (.xlsx or .xls)');
+                return;
+            }
+
+            // Show progress
+            document.getElementById('upload-progress').classList.remove('hidden');
+            document.getElementById('submit-btn').disabled = true;
+            document.getElementById('submit-btn').textContent = 'Uploading...';
+
+            // Simulate upload progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                document.getElementById('progress-bar').style.width = progress + '%';
+                document.getElementById('progress-percent').textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    document.getElementById('upload-progress').classList.add('hidden');
+                    document.getElementById('upload-success').classList.remove('hidden');
+                    document.getElementById('submit-btn').textContent = 'SUBMIT RETURN';
+                    document.getElementById('submit-btn').disabled = false;
+                }
+            }, 200);
+        });
+    </script>
+</body>
+</html>

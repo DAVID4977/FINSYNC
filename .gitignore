@@ -1,0 +1,17 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+.venv
+backend_env
+.env
+.envs
+python_backend/temp_input/
+python_backend/sessions/
+python_backend/__pycache__/
+*.xlsx
+.idea
+.local
+attached_assets

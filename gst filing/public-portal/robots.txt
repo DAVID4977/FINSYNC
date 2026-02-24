@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://gst-portal-demo.surge.sh/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Allow search engines to index everything
+Disallow: 
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

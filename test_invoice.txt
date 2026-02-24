@@ -1,0 +1,1 @@
+Testing with a sample invoice file to verify the GST extraction workflow
